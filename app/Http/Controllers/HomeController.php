@@ -10,8 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $media = Media::get();
+        $media = Media::with('mahasiswa','kategori')->get();
 
-        return response()->json($media);
+        return view('home', compact('media'));
+        
     }
 }
