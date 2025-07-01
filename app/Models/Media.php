@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Mahasiswa;
+use App\Models\Kategori;
+
 class Media extends Model
 {
     use HasFactory;
@@ -22,4 +25,14 @@ class Media extends Model
         'link_media',
         'gambar_cover'
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'mahasiswa_id', 'mahasiswa_id');
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id', 'kategori_id');
+    }
 }
